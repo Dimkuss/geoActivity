@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">GeoActivity</string>
+    <string name="geos">Введите координаты или обьект</string>
+    <string name="btnOK">OK</string>
+</resources>
