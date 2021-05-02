@@ -7,7 +7,7 @@
     tools:context=".MainActivity">
 
     <EditText
-        android:id="@+id/EditTextGeo"
+        android:id="@+id/editTextGeo"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="55dp"
@@ -31,6 +31,6 @@
         android:layout_marginBottom="414dp"
         android:text="@string/btnOK"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="@+id/EditTextGeo"
-        app:layout_constraintTop_toBottomOf="@+id/EditTextGeo" />
+        app:layout_constraintEnd_toEndOf="@+id/editTextGeo"
+        app:layout_constraintTop_toBottomOf="@+id/editTextGeo" />
 </androidx.constraintlayout.widget.ConstraintLayout>

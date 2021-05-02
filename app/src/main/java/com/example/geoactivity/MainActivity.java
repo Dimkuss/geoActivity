@@ -28,20 +28,26 @@ public class MainActivity extends AppCompatActivity {
         Button btn = findViewById(R.id.buttonOK);
 
         Intent intent = new Intent(Intent.ACTION_VIEW);
-        intent.setData(uri);
+
 
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText text = findViewById(R.id.EditTextGeo);
-                String uris = text.toString();
+                EditText text = findViewById(R.id.editTextGeo);
+                String uris = text.getText().toString();
                 char[] chars = uris.toCharArray();
-                if (Character.isLetter(chars[0])) {
-                    uri = Uri.parse("geo:?q=" + uris +"");
+//                for (int i=0; i < chars.length; i++ ){
+//                    if(Character.isLetter(chars[i])){
+//
+//                    }
+//                }
+                if (Character.isLetter(chars[2])) {
+                    uri = Uri.parse("geo:?q=" + uris);
                 } else {
-                    uri = Uri.parse("geo:" + uris + "");
+                    uri = Uri.parse("geo:" + uris);
                 }
                 if (intent.resolveActivity(getPackageManager()) != null) {
+                    intent.setData(uri);
                     startActivity(intent);
                 } else {
                     Log.d("Intent", "NotFound");
