@@ -11,6 +11,7 @@ import android.widget.Button;
 import android.widget.EditText;
 
 import static java.lang.Character.isLetter;
+import static java.lang.Integer.parseInt;
 
 public class MainActivity extends AppCompatActivity {
     Button button;
@@ -23,7 +24,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         init();
     }
-    public void init(){
+
+    public void init() {
 
         Button btn = findViewById(R.id.buttonOK);
 
@@ -36,16 +38,17 @@ public class MainActivity extends AppCompatActivity {
                 EditText text = findViewById(R.id.editTextGeo);
                 String uris = text.getText().toString();
                 char[] chars = uris.toCharArray();
-//                for (int i=0; i < chars.length; i++ ){
-//                    if(Character.isLetter(chars[i])){
-//
-//                    }
-//                }
-                if (Character.isLetter(chars[2])) {
-                    uri = Uri.parse("geo:?q=" + uris);
-                } else {
+
+                for (int i = 0; i < chars.length; i++) {
+                    if (Character.isLetter(chars[i])) {
+                        uri = Uri.parse("geo:?q=" + uris);
+                        break;
+
+                    }
                     uri = Uri.parse("geo:" + uris);
                 }
+
+
                 if (intent.resolveActivity(getPackageManager()) != null) {
                     intent.setData(uri);
                     startActivity(intent);
